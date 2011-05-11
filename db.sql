@@ -1,9 +1,15 @@
 CREATE TABLE  `catalog`.`category` (
   `cid` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(252) NOT NULL,
-  `lang` varchar(32) NOT NULL,
+  `created_at` TIMESTAMP NOT NULL,
   PRIMARY KEY (`cid`,`lang`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8
+
+CREATE TABLE `catalog`.`category_lang` (
+  `cid` int(11)  NOT NULL,
+  `lang` varchar(32)  NOT NULL,
+  `name` varchar(52)  NOT NULL,
+  PRIMARY KEY (`cid`, `lang`)
+) ENGINE = InnoDB;
 
 CREATE TABLE  `catalog`.`subcategory` (
   `scid` int(11) NOT NULL AUTO_INCREMENT,
