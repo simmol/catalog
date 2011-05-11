@@ -37,3 +37,11 @@ CREATE TABLE `catalog`.`product_lang` (
 )
 ENGINE = InnoDB;
 
+CREATE TABLE `catalog`.`product_lang` (
+  `pid` int(11)  NOT NULL,
+  `lang` varchar(32)  NOT NULL,
+  `name` varchar(52)  NOT NULL,
+  `description` text  NOT NULL,
+  PRIMARY KEY (`pid`, `lang`)
+)
+ENGINE = InnoDB;
