@@ -53,7 +53,7 @@ if ($scid) {
   $sql .= " AND scid = $scid ";
 }
 
-if ($sort) {
+if ($sort and in_array($sort, array('price', 'created_at') and in_array(strtolower($sor_order), array('asc', 'desc')) {
   $sql .= ' ORDER BY '. $sort . ' ' . $sort_order;
 }
 

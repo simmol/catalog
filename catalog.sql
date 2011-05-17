@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.1.54, for debian-linux-gnu (i686)
+-- MySQL dump 10.13  Distrib 5.1.54, for debian-linux-gnu (x86_64)
 --
 -- Host: localhost    Database: catalog
 -- ------------------------------------------------------
--- Server version	5.1.54-1ubuntu4
+-- Server version	5.1.54-1ubuntu4-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -26,7 +26,7 @@ CREATE TABLE `category` (
   `cid` int(11) NOT NULL AUTO_INCREMENT,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`cid`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -77,6 +77,7 @@ CREATE TABLE `product` (
   `scid` int(11) NOT NULL,
   `price` varchar(32) NOT NULL,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`pid`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -87,7 +88,7 @@ CREATE TABLE `product` (
 
 LOCK TABLES `product` WRITE;
 /*!40000 ALTER TABLE `product` DISABLE KEYS */;
-INSERT INTO `product` VALUES (1,1,1,'10','2011-05-11 12:05:11'),(2,1,2,'20','2011-05-11 12:06:17'),(3,2,3,'15','2011-05-11 12:07:00'),(4,2,4,'30.20','2011-05-11 12:06:59');
+INSERT INTO `product` VALUES (1,1,1,'10','2011-05-11 12:05:11','2011-05-11 12:05:11'),(2,1,2,'20','2011-05-11 12:06:17','2011-05-11 12:06:17'),(3,2,3,'15','2011-05-11 12:07:00','2011-05-11 12:07:00'),(4,2,4,'30.20','2011-05-11 12:06:59','2011-05-11 12:06:59');
 /*!40000 ALTER TABLE `product` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -113,6 +114,7 @@ CREATE TABLE `product_lang` (
 
 LOCK TABLES `product_lang` WRITE;
 /*!40000 ALTER TABLE `product_lang` DISABLE KEYS */;
+INSERT INTO `product_lang` VALUES (1,'bg','Тор','3D филм за Тор'),(1,'en','Thor','3D movie for Thor'),(2,'bg','Заглавие на Филм','Описание на филм'),(2,'en','Movie Title','Movie description'),(3,'bg','СтарКрафт','Три раси Протос, Теран и Зерг ...'),(3,'en','StarCraft','3 Races Protos, Teran, Zerg ...'),(4,'bg','Томб Райдър 4','Поредните приключения на Лара Крофт'),(4,'en','Tomb Raider 4','The next adventures of Lara Croft');
 /*!40000 ALTER TABLE `product_lang` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -174,4 +176,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2011-05-11 15:07:18
+-- Dump completed on 2011-05-17 11:48:20
