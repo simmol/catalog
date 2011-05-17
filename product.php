@@ -37,8 +37,6 @@ while($row = mysql_fetch_assoc($res)) {
 }
 
 # Output
-$nt  = '\n\t';
-
 echo '<?xml version="1.0" encoding="utf-8"?>'."\n";
 
 echo "\n<catalogue>";
@@ -46,10 +44,10 @@ echo "\n<catalogue>";
 # Sidebar with categories
 echo "\n\t<sidebar>";
 foreach($category as $cat) {
-  echo "\n\t\t".'<cat title="' . htmlentities($cat['title']) . '" id="' . $cat['id'] . '">';
+  echo "\n\t\t".'<cat title="' . $cat['title'] . '" id="' . $cat['id'] . '">';
   $subcategory = $cat['subcategories'];
   foreach($subcategory as $subcat) {
-    echo "\n\t\t\t".'<subcat title="' . htmlentities($subcat['title']) . '" id="' . $subcat['id'] . '">' . "\n\t\t\t</subcat>";
+    echo "\n\t\t\t".'<subcat title="' . $subcat['title'] . '" id="' . $subcat['id'] . '">' . "\n\t\t\t</subcat>";
   }
   echo "\n\t\t" . '</cat>';
 }
@@ -57,7 +55,7 @@ echo "\n\t</sidebar>";
 
 # Main area
 echo "\n\t<mainbar>";
-echo "\n\t\t" . '<product id="'.$product['id'].'" title="' .htmlentities($product['name']). '" price="'.$product['price'].'" description="'.$product['description'].'" published_days="'.$published_days.'">';
+echo "\n\t\t" . '<product id="'.$product['id'].'" title="' . $product['name'] . '" price="'.$product['price'].'" description="'.$product['description'].'" published_days="'.$published_days.'">';
 echo "\n\t\t</product>";
 echo "\n\t</mainbar>";
 
